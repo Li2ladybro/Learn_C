@@ -1,0 +1,3 @@
+﻿  测试.c
+D:\c语言code\冶炼金属\测试.c(19,21): warning C4113: “int (__cdecl *)(int,int)”和“_CoreCrtNonSecureSearchSortCompareFunction”的参数列表不同
+  冶炼金属.vcxproj -> D:\c语言code\冶炼金属\x64\Debug\冶炼金属.exe

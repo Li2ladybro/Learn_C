@@ -1,0 +1,2 @@
+D:\C# code\01串的熵\x64\Release\01串的熵.exe
+D:\c语言code\01串的熵\x64\Release\01串的熵.exe

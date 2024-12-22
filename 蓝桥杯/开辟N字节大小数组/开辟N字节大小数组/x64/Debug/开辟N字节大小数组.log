@@ -1,0 +1,4 @@
+﻿  main.c
+D:\c语言code\开辟N字节大小数组\main.c(26,31): warning C4311: “类型强制转换”: 从“__int64 *”到“int”的指针截断
+D:\c语言code\开辟N字节大小数组\main.c(26,48): warning C4311: “类型强制转换”: 从“__int64 *”到“int”的指针截断
+  开辟N字节大小数组.vcxproj -> D:\c语言code\开辟N字节大小数组\x64\Debug\开辟N字节大小数组.exe
