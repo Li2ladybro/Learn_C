@@ -1,0 +1,65 @@
+// TopK问题
+// a 用前k个数字构建大堆
+// b 构建大堆的向下调整算法
+
+void AdjustDown(int* arr, int arrSize, int root) {
+    int parent = root;
+    int child = 2 * parent + 1;
+    while (child < arrSize) {
+        if (child + 1 < arrSize && arr[child] < arr[child + 1]) {
+            // 获取大孩子
+            child++;
+        }
+        if (arr[parent] < arr[child]) {
+            // 交换
+            int temp = arr[parent];
+            arr[parent] = arr[child];
+            arr[child] = temp;
+
+            parent = child;
+            child = parent * 2 + 1;
+        } else {
+            break;
+        }
+    }
+}
+
+// 构建堆
+void CreateHeap(int* arr, int arrSize) {
+    for (int i = (arrSize - 1 - 1) / 2; i >= 0; i--) {
+        AdjustDown(arr, arrSize, i);
+    }
+}
+
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* smallestK(int* arr, int arrSize, int k, int* returnSize) {
+    if (arrSize == 0 || k == 0) {
+        *returnSize = k;
+        return arr;
+    }
+
+    int* des = (int*)malloc(sizeof(int) * k);
+
+    for (int i = 0; i < k; i++) {
+        des[i] = arr[i];
+    }
+    
+    // a 用前k个数字构建大堆
+    CreateHeap(des, k);
+
+    // b 构建大堆的向下调整算法
+    for (int i = k; i < arrSize; i++) {
+        // 小于堆顶元素进堆，再向下跳调整
+        if (arr[i] < des[0]) {
+            des[0] = arr[i];
+            AdjustDown(des, k, 0);
+        } else {
+            continue;
+        }
+    }
+
+    *returnSize = k;
+    return des;
+}

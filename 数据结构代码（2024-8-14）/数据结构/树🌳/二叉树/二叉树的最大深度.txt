@@ -1,0 +1,22 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     struct TreeNode *left;
+ *     struct TreeNode *right;
+ * };
+ */
+
+int maxDepth(struct TreeNode* root) {
+
+    if (root == NULL) {
+        return 0;
+    }
+
+    int lsize = maxDepth(root->left);  // 返回一个1;
+    int rsize = maxDepth(root->right); // 返回2;
+
+    int maxsize = lsize > rsize ? lsize : rsize;
+
+    return 1 + maxsize;
+}
